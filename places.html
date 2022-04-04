@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        /*#map {
+            height: 100%;
+        }*/
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .review_item div a {
+            color: #fff !important;
+        }
+
+            .review_item div a:hover, .review_item div a:focus, .review_item div a:active {
+                color: #fff !important;
+            }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/DatetimeDiff.js"></script>
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChYatlHSvP70X-VCwC4igTMtN8KV2dw8w&libraries=places&callback=initMap"></script>-->
+    <script>
+        var jss = {
+            'html_attributions': [],
+            'result': {
+                'address_components': [
+                    {
+                        'long_name': '66-4號',
+                        'short_name': '66-4號',
+                        'types': [
+                            'street_number'
+                        ]
+                    },
+                    {
+                        'long_name': '新生北路二段',
+                        'short_name': '新生北路二段',
+                        'types': [
+                            'route'
+                        ]
+                    },
+                    {
+                        'long_name': '中山區',
+                        'short_name': '中山區',
+                        'types': [
+                            'administrative_area_level_3',
+                            'political'
+                        ]
+                    },
+                    {
+                        'long_name': '台北市',
+                        'short_name': '台北市',
+                        'types': [
+                            'administrative_area_level_1',
+                            'political'
+                        ]
+                    },
+                    {
+                        'long_name': '台灣',
+                        'short_name': 'TW',
+                        'types': [
+                            'country',
+                            'political'
+                        ]
+                    },
+                    {
+                        'long_name': '104',
+                        'short_name': '104',
+                        'types': [
+                            'postal_code'
+                        ]
+                    }
+                ],
+                'adr_address': '<span class=\'postal-code\'>104</span><span class=\'country-name\'>台灣</span><span class=\'region\'>台北市</span><span class=\'locality\'>中山區</span><span class=\'street-address\'>新生北路二段66-4號</span>',
+                'formatted_address': '104台灣台北市中山區新生北路二段66-4號',
+                'formatted_phone_number': '02 2571 0422',
+                'geometry': {
+                    'location': {
+                        'lat': 25.0562501,
+                        'lng': 121.5272306
+                    },
+                    'viewport': {
+                        'northeast': {
+                            'lat': 25.0575989302915,
+                            'lng': 121.5286019302915
+                        },
+                        'southwest': {
+                            'lat': 25.0549009697085,
+                            'lng': 121.5259039697085
+                        }
+                    }
+                },
+                'icon': 'https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png',
+                'id': '6a389f0f6323d389b39c9373452cca1c4d559497',
+                'international_phone_number': '+886 2 2571 0422',
+                'name': '新永發鎖店',
+                'opening_hours': {
+                    'open_now': false,
+                    'periods': [
+                        {
+                            'close': {
+                                'day': 0,
+                                'time': '2000'
+                            },
+                            'open': {
+                                'day': 0,
+                                'time': '0900'
+                            }
+                        },
+                        {
+                            'close': {
+                                'day': 1,
+                                'time': '2130'
+                            },
+                            'open': {
+                                'day': 1,
+                                'time': '0900'
+                            }
+                        },
+                        {
+                            'close': {
+                                'day': 2,
+                                'time': '2130'
+                            },
+                            'open': {
+                                'day': 2,
+                                'time': '0900'
+                            }
+                        },
+                        {
+                            'close': {
+                                'day': 3,
+                                'time': '2130'
+                            },
+                            'open': {
+                                'day': 3,
+                                'time': '0900'
+                            }
+                        },
+                        {
+                            'close': {
+                                'day': 4,
+                                'time': '2130'
+                            },
+                            'open': {
+                                'day': 4,
+                                'time': '0900'
+                            }
+                        },
+                        {
+                            'close': {
+                                'day': 5,
+                                'time': '2130'
+                            },
+                            'open': {
+                                'day': 5,
+                                'time': '0900'
+                            }
+                        },
+                        {
+                            'close': {
+                                'day': 6,
+                                'time': '2130'
+                            },
+                            'open': {
+                                'day': 6,
+                                'time': '0900'
+                            }
+                        }
+                    ],
+                    'weekday_text': [
+                        '星期一: 09:00 – 21:30',
+                        '星期二: 09:00 – 21:30',
+                        '星期三: 09:00 – 21:30',
+                        '星期四: 09:00 – 21:30',
+                        '星期五: 09:00 – 21:30',
+                        '星期六: 09:00 – 21:30',
+                        '星期日: 09:00 – 20:00'
+                    ]
+                },
+                'photos': [
+                    {
+                        'height': 290,
+                        'html_attributions': [
+                            '<a href=\'https://maps.google.com/maps/contrib/105200641066181265206/photos\'>新永發鎖店</a>'
+                        ],
+                        'photo_reference': 'CmRaAAAAO_MtZ-vTD3gNpQVSEAKA_0Q3SZYaj_S-IthLnKX0_LlsqJnMF1ctFAPfQcIymOCgLE8RhAdusiEyCdSPFYtqHaChPey0b3Bm2iVwoMqLeLqWjBs85jtstBK8_gUouWOYEhDZ1wArC9UN5OplRlOl1ZLbGhS1o7-a2e9nndEPyI35DkwHbe0Yyg',
+                        'width': 291
+                    },
+                    {
+                        'height': 1380,
+                        'html_attributions': [
+                            '<a href=\'https://maps.google.com/maps/contrib/105200641066181265206/photos\'>新永發鎖店</a>'
+                        ],
+                        'photo_reference': 'CmRaAAAASJ8z7B8xtS62vOVaQB87HwQGMDv7sKwxwtWlRqglMeyqsf_P8g-xwSnAbPu8TNJkM2PEnpI703ledtuHP8LEKyQS9bCoIaoFKPkCHxU_dc2tSIcCZuZt_2pJvXvYdTJ4EhC2-KGwnP3aufyb57Dg8_rQGhRg95ieLbIQOUkGpMkv6D_3wmexHg',
+                        'width': 732
+                    }
+                ],
+                'place_id': 'ChIJQz9cimepQjQR4OV4iPWgZk8',
+                'plus_code': {
+                    'compound_code': '3G4G+GV 台灣台北市中山區',
+                    'global_code': '7QQ33G4G+GV'
+                },
+                'rating': 4.3,
+                'reference': 'ChIJQz9cimepQjQR4OV4iPWgZk8',
+                'reviews': [
+                    {
+                        'author_name': 'tangerine tsou',
+                        'author_url': 'https://www.google.com/maps/contrib/111795156711468487209/reviews',
+                        'language': 'zh-Hant',
+                        'profile_photo_url': 'https://lh5.googleusercontent.com/-pmu0GGRU-7c/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rerfu2hrjAQBGcYG3tJLuZFr3N5dg/s128-c0x00000000-cc-rp-mo/photo.jpg',
+                        'rating': 1,
+                        'relative_time_description': '本星期',
+                        'text': '態度超差，請修東西愛理不理',
+                        'time': 1565237269
+                    },
+                    {
+                        'author_name': 'Yutso Li',
+                        'author_url': 'https://www.google.com/maps/contrib/108268441003653217917/reviews',
+                        'language': 'zh-Hant',
+                        'profile_photo_url': 'https://lh6.googleusercontent.com/-2PDMGrN_HV0/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rew8pX-Br9K2VNE7EZoeHxYvV89sg/s128-c0x00000000-cc-rp-mo/photo.jpg',
+                        'rating': 5,
+                        'relative_time_description': '7 個月前',
+                        'text': '鎖腳踏車的鎖頭卡住轉不開了 \n鄰居5.6個50.60歲的歐吉桑歐巴桑一起協助老闆和我把鎖剪開(還各自跑回家拿器械) 有種台灣鄉下互助甘心的感覺',
+                        'time': 1545028073
+                    },
+                    {
+                        'author_name': 'Clarence Jian',
+                        'author_url': 'https://www.google.com/maps/contrib/101274204628319253176/reviews',
+                        'language': 'zh-Hant',
+                        'profile_photo_url': 'https://lh4.googleusercontent.com/-EhOBL1hFThQ/AAAAAAAAAAI/AAAAAAAASsA/5IdcMZQAfSo/s128-c0x00000000-cc-rp-mo/photo.jpg',
+                        'rating': 4,
+                        'relative_time_description': '8 個月前',
+                        'text': '台北假日才開鎖400！而且阿伯超快就來了！',
+                        'time': 1544327911
+                    },
+                    {
+                        'author_name': 'Huang Chin',
+                        'author_url': 'https://www.google.com/maps/contrib/118402619081252941441/reviews',
+                        'language': 'zh-Hant',
+                        'profile_photo_url': 'https://lh3.googleusercontent.com/-1ON0PPkOjlk/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcgn2E_hXfRy2KUHIx8Jy-w0FB6Nw/s128-c0x00000000-cc-rp-mo-ba3/photo.jpg',
+                        'rating': 5,
+                        'relative_time_description': '4 個月前',
+                        'text': '感謝老闆即刻救援!!',
+                        'time': 1552525559
+                    },
+                    {
+                        'author_name': 'Jennyyy Chiu',
+                        'author_url': 'https://www.google.com/maps/contrib/103998884574588739564/reviews',
+                        'language': 'zh-Hant',
+                        'profile_photo_url': 'https://lh5.googleusercontent.com/-lij8VBOsPjM/AAAAAAAAAAI/AAAAAAAAMs4/xj3WOY6QKqU/s128-c0x00000000-cc-rp-mo/photo.jpg',
+                        'rating': 5,
+                        'relative_time_description': '1 年前',
+                        'text': '老闆人超好，態度好又隨和，不會因為鎖難開或要跑太遠開鎖而態度不好，原本收400因為錢包裏當時只有300老闆很豪邁的收300就好👍',
+                        'time': 1525347064
+                    }
+                ],
+                'scope': 'GOOGLE',
+                'types': [
+                    'locksmith',
+                    'point_of_interest',
+                    'establishment'
+                ],
+                'url': 'https://maps.google.com/?cid=5721437353037850080',
+                'user_ratings_total': 24,
+                'utc_offset': 480,
+                'vicinity': '中山區新生北路二段66-4號',
+                'website': 'https://xyf-key.updog.co/new/index.html'
+            },
+            'status': 'OK'
+        };
+        $(function () {
+            var current = new Date(2011, 04, 24, 12, 30, 30, 30);
+            console.log(timeDifference(new Date(2012, 08, 11, 12, 30, 00, 00)));
+            //console.log(timeago(1552525559 * 1000));
+            console.log(timeDifference(1552525559 * 1000));
+
+
+            ////var API_KEY = 'AIzaSyChYatlHSvP70X-VCwC4igTMtN8KV2dw8w';
+            ////var placeid = 'ChIJQz9cimepQjQR4OV4iPWgZk8';
+            ////var API_URL = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeid}&key=${API_KEY}';
+            //var API_URL = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJQz9cimepQjQR4OV4iPWgZk8&key=AIzaSyChYatlHSvP70X-VCwC4igTMtN8KV2dw8w';
+            ////console.log(API_URL);
+            ////console.log('1111111');
+
+            //$.getJSON(API_URL, {
+            //    tagmode: "any",
+            //    format: "json"
+            //},
+            //    function (data) {
+            //        //alert(data);
+            //        console.log(JSON.stringify(data));
+            //        //console.log(data["result"]);
+
+            //        var items = [];
+            //        $.each(data["result"], function (key, val) {
+            //            //if (key == 'reviews') {
+            //            //    console.log(val);
+            //            //}
+
+
+            //            items.push("<li id='" + key + "'>" + key + "</li>");
+            //        });
+            //        $("<ul/>", {
+            //            "class": "my-new-list",
+            //            html: items.join("")
+            //        }).appendTo("body");
+
+
+
+
+
+
+            //        //.items["reviews"]
+
+
+            //    });
+            ////console.log('333333');
+
+            //var items = [];
+
+            //console.log(jss.result.reviews);
+            ////$.each(jss.result.reviews, function (key, val) {
+
+            ////    items.push("<li id='" + key + "'>" + key + "</li>");
+            ////});
+            //$.each(jss.result.reviews, function (key, val) {
+            //    if (val.rating >= 4) {
+            //        console.log(val);
+            //        items.push("<div class='col-lg-6 col-md-6'>");
+            //        items.push("<div class='mb-5 mt-5 mb-lg-0 bg-light rounded'>");
+            //        items.push("<div class='row'>");
+            //        items.push("<div class='col-md-4 mb-lg-5 mt-5'>");
+            //        items.push("<a href='" + val.author_url + "' target='_blank' title='" + val.author_name + "的其他評論'>");
+            //        items.push("<img style='width:50%' class='img-responsive' src='" + val.profile_photo_url + "'>");
+            //        items.push("<h6>");
+            //        items.push("<strong>" + val.author_name + "</strong>");
+            //        items.push("</h6>");
+            //        items.push("</a>");
+            //        items.push("</div>");
+            //        items.push("<div class='col-md-8 mb-5 mt-lg-5 text-warning text-left'>");
+
+            //        for (i = 0; i < 5; i++) {
+            //            if (i < val.rating) {
+            //                items.push("<i class='fas fa-star'></i>");
+            //            } else {
+            //                items.push("<i class='far fa-star'></i>");
+            //            }
+            //        }
+            //        items.push("<span class='text-right text-black-50 ml-3 font-italic'>" + val.relative_time_description + "</span>");
+            //        items.push("<h6 class='text-primary shadow-key'>");
+            //        items.push(val.text);
+            //        items.push("</h6>");
+            //        items.push("</div>");
+            //        items.push("</div>");
+            //        items.push("</div>");
+            //        items.push("</div>");
+            //    }
+
+
+            //});
+
+
+            ////$.each(jss["result"], function (key, val) {
+            ////    if (key == 'reviews') {
+            ////        console.log(val);
+            ////    }
+
+
+            ////    items.push("<li id='" + key + "'>" + key + "</li>");
+            ////});
+            //$("<div/>", {
+            //    "class": "row",
+            //    html: items.join("")
+            //}).appendTo("#services > div");
+
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container">
+            <div class="content-section-heading">
+                <h3 class="text-secondary mb-0">服務項目</h3>
+                <h2 class="mb-5">專業熱情為您服務</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <i class="fas fa-key"></i>
+                    </span>
+                    <h4>
+                        <strong>配鑰匙</strong>
+                    </h4>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <h4>
+                        <strong>開換門鎖</strong>
+                    </h4>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <i class="fas fa-stamp"></i>
+                    </span>
+                    <h4>
+                        <strong>印章刻印</strong>
+                    </h4>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <span class="service-icon rounded-circle mx-auto mb-3">
+                        <i class="fas fa-fingerprint"></i>
+                    </span>
+                    <h4>
+                        <strong>拷貝磁扣卡片</strong>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
